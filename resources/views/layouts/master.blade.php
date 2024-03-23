@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="{{asset('AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
   <!-- DataTables -->
   <link rel="stylesheet" href="{{asset('AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
-  
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,10 +50,10 @@
 <body class="hold-transition skin-blue-light sidebar-mini">
 <div class="wrapper">
 
-  @includeIf('Layouts.header')
+  @includeIf('layouts.header')
   <!-- Left side column. contains the logo and sidebar -->
-  
-  @includeIf('Layouts.sidebar')
+
+  @includeIf('layouts.sidebar')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -63,7 +63,7 @@
         @section('breadcrumb')
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         @show
-        
+
       </ol>
     </section>
 
@@ -76,7 +76,7 @@
   </div>
   <!-- /.content-wrapper -->
     @includIf('layouts.footer')
-    
+
 </div>
 <!-- ./wrapper -->
 

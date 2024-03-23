@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
 @section('title')
-    Daftar Laboratorium
+Daftar Laboratorium
 @endsection
 
 @section('breadcrumb')
-    @parent
-    <li class="active">Daftar Laboratorium</li>
+@parent
+<li class="active">Daftar Laboratorium</li>
 @endsection
 
 @section('content')
@@ -14,7 +14,8 @@
     <div class="col-lg-12">
         <div class="box">
             <div class="box-header with-border">
-                <button onclick="addForm('{{ route('laboratorium.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
+                <button onclick="addForm('{{ route('laboratorium.store') }}')"
+                    class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
             </div>
             <div class="box-body table-responsive">
                 <table class="table table-stiped table-bordered">

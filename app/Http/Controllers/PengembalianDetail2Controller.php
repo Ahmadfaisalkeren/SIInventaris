@@ -27,7 +27,7 @@ class PengembalianDetail2Controller extends Controller
         $detail = PeminjamanDetail::where('id_peminjaman', $id)
         ->get();
         $data = array();
-        
+
 
         foreach($detail as $item){
             $row=array();
@@ -42,13 +42,10 @@ class PengembalianDetail2Controller extends Controller
             $data[]=$row;
         }
 
-        
-
-
         return datatables()
             ->of($data)
             ->addIndexColumn()
-            ->rawColumns(['kode_barang'])            
+            ->rawColumns(['kode_barang'])
             ->make(true);
     }
 }

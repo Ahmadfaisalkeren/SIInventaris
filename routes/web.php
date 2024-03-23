@@ -43,12 +43,11 @@ Route::get('/',fn() => redirect()->route('login'));
 Route::group(['middleware' => 'auth'],function(){
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
-
     Route::group(['middleware' => 'level:1'], function(){
 
     Route::get('/laboratorium/data',[LaboratoriumController::class,'data'])->name('laboratorium.data');
     Route::resource('/laboratorium',LaboratoriumController::class);
-    
+
     });
 
     Route::group(['middleware' => 'level:1,2,3,4,5,6,7'], function(){
@@ -72,7 +71,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/peminjaman/ditolak/{id}',[PeminjamanController::class, 'ditolak'])->name('peminjaman.ditolak');
     Route::resource('/peminjaman', PeminjamanController::class)
         ->except('create');
-    
+
     Route::get('/peminjaman_detail/{id}/data',[PeminjamanDetailController::class,'data'])->name('peminjaman_detail.data');
     Route::resource('/peminjaman_detail', PeminjamanDetailController::class)
         ->except('create','show','edit');
@@ -82,7 +81,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/pengembalian/konfirmasi/{id}',[PengembalianController::class, 'konfirmasi'])->name('pengembalian.konfirmasi');
     Route::resource('/pengembalian', PengembalianController::class)
             ->except('create');
-    
+
     Route::get('/pengembalian_detail/{id}/data',[PengembalianDetailController::class,'data'])->name('pengembalian_detail.data');
     Route::resource('/pengembalian_detail', PengembalianDetailController::class)
             ->except('create','show','edit');
@@ -107,17 +106,17 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/peminjaman2/konfirmasi/{id}',[Peminjaman2Controller::class, 'konfirmasi'])->name('peminjaman2.konfirmasi');
     Route::resource('/peminjaman2', Peminjaman2Controller::class)
         ->except('create');
-            
+
     Route::get('/peminjaman_detail2/{id}/data',[PeminjamanDetail2Controller::class,'data'])->name('peminjaman_detail2.data');
     Route::resource('/peminjaman_detail2', PeminjamanDetail2Controller::class)
         ->except('create','show','edit');
-        
+
     Route::get('/pengembalian2/data',[Pengembalian2Controller::class, 'data'])->name('pengembalian2.data');
     Route::get('/pengembalian2/{id}/create',[Pengembalian2Controller::class, 'create'])->name('pengembalian2.create');
     Route::post('/pengembalian2/konfirmasi/{id}',[Pengembalian2Controller::class, 'konfirmasi'])->name('pengembalian2.konfirmasi');
     Route::resource('/pengembalian2', Pengembalian2Controller::class)
             ->except('create');
-    
+
     Route::get('/pengembalian_detail2/{id}/data',[PengembalianDetail2Controller::class,'data'])->name('pengembalian_detail2.data');
     Route::resource('/pengembalian_detail2', PengembalianDetail2Controller::class)
             ->except('create','show','edit');
@@ -126,7 +125,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/laporan2/data/{awal}/{akhir}', [Laporan2Controller::class, 'data'])->name('laporan2.data');
     Route::get('/laporan2/show/{tanggal}', [Laporan2Controller::class, 'show'])->name('laporan2.show');
     Route::get('/laporan2/pdf/{awal}/{akhir}', [Laporan2Controller::class, 'exportPDF'])->name('laporan2.export_pdf');
-    
+
     });
     Route::group(['middleware' => 'level:1,4,7'], function(){
 
@@ -136,23 +135,23 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/databarang3/cetak-laporan',[Databarang3Controller::class,'cetakLaporan'])->name('databarang3.cetak_laporan');
     Route::post('/databarang3/cetak-jumlah',[Databarang3Controller::class,'cetakJumlah'])->name('databarang3.cetak_jumlah');
     Route::resource('/databarang3',Databarang3Controller::class);
-    
+
     Route::get('/peminjaman3/data',[Peminjaman3Controller::class, 'data'])->name('peminjaman3.data');
     Route::get('/peminjaman3/{id}/create',[Peminjaman3Controller::class, 'create'])->name('peminjaman3.create');
     Route::post('/peminjaman3/konfirmasi/{id}',[Peminjaman3Controller::class, 'konfirmasi'])->name('peminjaman3.konfirmasi');
     Route::resource('/peminjaman3', Peminjaman3Controller::class)
         ->except('create');
-                    
+
     Route::get('/peminjaman_detail3/{id}/data',[PeminjamanDetail3Controller::class,'data'])->name('peminjaman_detail3.data');
     Route::resource('/peminjaman_detail3', PeminjamanDetail3Controller::class)
          ->except('create','show','edit');
-                
+
     Route::get('/pengembalian3/data',[Pengembalian3Controller::class, 'data'])->name('pengembalian3.data');
     Route::get('/pengembalian3/{id}/create',[Pengembalian3Controller::class, 'create'])->name('pengembalian3.create');
     Route::post('/pengembalian3/konfirmasi/{id}',[Pengembalian3Controller::class, 'konfirmasi'])->name('pengembalian3.konfirmasi');
     Route::resource('/pengembalian3', Pengembalian3Controller::class)
             ->except('create');
-            
+
     Route::get('/pengembalian_detail3/{id}/data',[PengembalianDetail3Controller::class,'data'])->name('pengembalian_detail3.data');
     Route::post('/pengembalian_detail3/konfirmasi/{id}',[PengembalianDetail3Controller::class, 'konfirmasi'])->name('pengembalian_detail3.konfirmasi');
     Route::resource('/pengembalian_detail3', PengembalianDetail3Controller::class)
@@ -165,29 +164,29 @@ Route::group(['middleware' => 'auth'],function(){
     });
 
     Route::group(['middleware' => 'level:1,2,3,4,5,6,7'], function(){
-    
+
     Route::get('/member/data',[MemberController::class,'data'])->name('member.data');
     Route::resource('/member',MemberController::class);
     Route::post('/member/cetak-member',[MemberController::class,'cetakMember'])->name('member.cetak_member');
-    
+
     Route::get('/profil', [UserController::class, 'profil'])->name('user.profil');
     Route::post('/profil', [UserController::class, 'updateProfil'])->name('user.update_profil');
 
     });
     Route::group(['middleware' => 'level:2,3,4'], function(){
-        
+
     Route::get('/userlaboran/data',[UserlaboranController::class,'data'])->name('userlaboran.data');
     Route::resource('/userlaboran', UserlaboranController::class);
 
     });
     Route::group(['middleware' => 'level:1'], function(){
-    
+
     Route::get('/user/data',[UserController::class,'data'])->name('user.data');
     Route::resource('/user', UserController::class);
 
     Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
     Route::get('/setting/first', [SettingController::class, 'show'])->name('setting.show');
     Route::post('/setting', [SettingController::class, 'update'])->name('setting.update');
-    
+
     });
 });

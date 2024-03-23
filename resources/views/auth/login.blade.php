@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 @section('login')
 <div class="login-box">
-  
+
   <!-- /.login-logo -->
   <div class="login-box-body">
     <div class="login-logo">
@@ -49,7 +49,7 @@
       </div>
     </form>
 
-    
+
   </div>
   <!-- /.login-box-body -->
 </div>

@@ -1,25 +1,26 @@
 @extends('layouts.master')
 
 @section('title')
-    Daftar Kategori
+Daftar Kategori
 @endsection
 
 @section('breadcrumb')
-    @parent
-    <li class="active">Daftar Kategori</li>
+@parent
+<li class="active">Daftar Kategori</li>
 @endsection
 
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-       
+
         <div class="box">
             <div class="box-header with-border">
                 @if (auth()->user()->level >= 5 )
-                <button onclick="addForm('{{ route('kategori.store') }}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
+                <button onclick="addForm('{{ route('kategori.store') }}')" class="btn btn-success btn-xs btn-flat"><i
+                        class="fa fa-plus-circle"></i> Tambah</button>
                 @endif
             </div>
-        
+
             <div class="box-body table-responsive">
                 <table class="table table-stiped table-bordered">
                     <thead>
@@ -54,7 +55,7 @@
                 {data: 'nama_kategori'},
                 {data: 'jumlah'},
                 {data: 'aksi', searchable: false, sortable: false},
-                
+
             ]
         });
         $('#modal-form').validator().on('submit', function (e) {
@@ -81,7 +82,7 @@
     }
     function editForm(url) {
         $('#modal-form').modal('show');
-        $('#modal-form .modal-title').text('Edit Laboratorium');
+        $('#modal-form .modal-title').text('Edit Kategori');
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('put');

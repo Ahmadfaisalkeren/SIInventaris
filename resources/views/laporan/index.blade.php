@@ -32,8 +32,8 @@
                         <th>NIM / NIDN</th>
                         <th>Nama Barang</th>
                         <th>Merk</th>
-                        <th>Status Transaksi</th>   
-                                                                
+                        <th>Status Transaksi</th>
+
                     </thead>
                 </table>
             </div>
@@ -65,9 +65,7 @@
                 {data: 'nim'},
                 {data: 'nama_barang'},
                 {data: 'merk'},
-                {data: 'status_transaksi'},   
-                
-                 
+                {data: 'status_transaksi'},
 
             ],
             dom: 'Brt',
@@ -78,7 +76,7 @@
             format: 'yyyy-mm-dd',
             autoclose: true
         });
-    
+
     $('.table-member').DataTable();
     table1 = $('.table-detail').DataTable({
         processing: true,
@@ -90,7 +88,7 @@
                 {data: 'nama'},
                 {data: 'nim'},
                 {data: 'status_transaksi'},
-                
+
             ]
         })
 
